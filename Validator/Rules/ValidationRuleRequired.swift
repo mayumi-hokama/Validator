@@ -9,17 +9,17 @@
 import Foundation
 
 /// 必須チェック用のバリデータ
-struct ValidationRuleRequired<T>: ValidationRule {
+public struct ValidationRuleRequired<T>: ValidationRule {
     
-    typealias InputType = T
+    public typealias InputType = T
     
     private let invalidError: ValidationErrorType
     
-    init(invalidError: ValidationErrorType) {
+    public init(invalidError: ValidationErrorType) {
         self.invalidError = invalidError
     }
     
-    func validate(_ value: InputType?) -> ValidationResult {
+    public func validate(_ value: InputType?) -> ValidationResult {
         
         if value != nil {
             return .valid

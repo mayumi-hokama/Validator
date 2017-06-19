@@ -9,7 +9,7 @@
 import Foundation
 
 /// ruleを格納する配列を作る構造体
-struct ValidationRuleComposite<InputType> {
+public struct ValidationRuleComposite<InputType> {
     
     // バリデーターをいれておく変数
     private var validators = [AnyValidationRule<InputType>]()
@@ -27,7 +27,7 @@ struct ValidationRuleComposite<InputType> {
         validators.append(anyRule)
     }
     
-    func validate(_ value: InputType) -> ValidationResult {
+    public func validate(_ value: InputType?) -> ValidationResult {
         
         for validator in validators {
             

@@ -9,13 +9,13 @@
 import Foundation
 
 /// Validationの結果enum
-enum ValidationResult {
+public enum ValidationResult {
     case valid
     case invalid(of: ValidationErrorType)
 }
 
 /// Validationエラープロトコル
-protocol ValidationErrorType: Error {
+public protocol ValidationErrorType: Error {
     var message: String { get }
 }
 
@@ -30,13 +30,13 @@ enum CommonInputError: ValidationErrorType {
     }
 }
 
-enum NumberInputError: ValidationErrorType {
+public enum NumberInputError: ValidationErrorType {
     case required
     case min(Int)
     case max(Int)
     case format
     
-    var message: String {
+    public var message: String {
         switch self {
         case .required:
             return "必須項目です。\n値を入力してください。"
@@ -50,12 +50,12 @@ enum NumberInputError: ValidationErrorType {
     }
 }
 
-enum CheckInputError: ValidationErrorType {
+public enum CheckInputError: ValidationErrorType {
     case required
     case min(Int)
     case max(Int)
     
-    var message: String {
+    public var message: String {
         switch self {
         case .required:
             return "必須項目です。\nいずれかを選択してください。"
@@ -66,14 +66,14 @@ enum CheckInputError: ValidationErrorType {
         }
     }
 }
-enum RadioInputError: ValidationErrorType {
+public enum RadioInputError: ValidationErrorType {
     case none
     case required
     case selected
     case orSelected
     case duplicated
     
-    var message: String {
+    public var message: String {
         switch self {
         case .none:
             return ""
@@ -88,11 +88,11 @@ enum RadioInputError: ValidationErrorType {
         }
     }
 }
-enum FreeTextInputError: ValidationErrorType {
+public enum FreeTextInputError: ValidationErrorType {
     case none
     case required
     
-    var message: String {
+    public var message: String {
         switch self {
         case .none:
             return ""

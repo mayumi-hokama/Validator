@@ -9,7 +9,7 @@
 import Foundation
 
 // ValidationのRule
-protocol ValidationRule {
+public protocol ValidationRule {
     associatedtype InputType
     func validate(_ value: InputType?) -> ValidationResult
 }
