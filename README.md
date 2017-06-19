@@ -1,0 +1,2 @@
+# Validator
+Validation用のクラス
